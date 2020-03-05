@@ -1,8 +1,17 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton } from '@ionic/react';
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
+import {getCurrentUser} from '../firebaseConfig';
 import './Profile.css';
 
 const Home: React.FC = () => {
+
+    useEffect(() => {
+      getCurrentUser().then(user => {
+        if (user) {
+          window.history.replaceState({}, "", "/discover");
+        }
+      });
+    }, []);
 
   const [input, setInput] = useState<string>('')
 

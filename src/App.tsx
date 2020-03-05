@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Menu from './components/Menu';
 import Home from './pages/Home';
+import {getCurrentUser} from './firebaseConfig'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -29,8 +30,9 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App: React.FC = () => (
-  <IonApp id="main">
+const App: React.FC = () => {
+
+  return (<IonApp id="main">
       <Menu />
     <IonReactRouter>
       <IonRouterOutlet>
@@ -44,7 +46,7 @@ const App: React.FC = () => (
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-
-);
+  )
+}
 
 export default App;

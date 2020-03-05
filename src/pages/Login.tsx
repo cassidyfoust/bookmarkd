@@ -16,6 +16,9 @@ const Login: React.FC = () => {
       const result = await loginUser(username, password)
       if(!result){
         toast('Unable to login. Please double-check your username and password.')
+      } else {
+        toast('You are logged in.')
+        window.history.replaceState({}, "", "/discover")
       }
       setBusy(false)
   }
