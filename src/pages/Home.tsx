@@ -1,23 +1,24 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton } from '@ionic/react';
+import React,{useState} from 'react';
+import './Profile.css';
 
 const Home: React.FC = () => {
+
+  const [input, setInput] = useState<string>('')
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonTitle>Welcome to Bookmark'd</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
+      <IonContent className="ion-padding">
+        <h2>Have an account?</h2>
+        <IonButton routerLink="/login">Login</IonButton>
+        <h2>Need an account?</h2>
+        <IonButton routerLink="/register">Register</IonButton>
+        
       </IonContent>
     </IonPage>
   );
