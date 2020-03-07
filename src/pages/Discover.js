@@ -20,16 +20,22 @@ class Discover extends Component {
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
-          {this.props.randomBooks && this.props.randomBooks.map(book => {
-            return (
-              <IonCard key={book.volumeInfo.title}>
-                <IonCardContent>
-                  <div>{book.volumeInfo.title}</div>
-                  <img src={book.volumeInfo.title} />
-                </IonCardContent>
-              </IonCard>
-            );
-          })}
+            {this.props.randomBooks &&
+              this.props.randomBooks.map(book => {
+                return (
+                  <IonCard key={book.volumeInfo.title} className="randomBooks">
+                    <IonCardContent>
+                      <img src={book.volumeInfo.imageLinks.smallThumbnail} />
+                      <IonButton color="danger">
+                        <IonIcon icon={trashBinOutline} />
+                      </IonButton>
+                      <IonButton color="">
+                        <IonIcon icon={bookmarkOutline} />
+                      </IonButton>
+                    </IonCardContent>
+                  </IonCard>
+                );
+              })}
         </IonContent>
       </IonPage>
     );
