@@ -1,9 +1,9 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton } from '@ionic/react';
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {getCurrentUser} from '../firebaseConfig';
 import './Profile.css';
 
-const Home: React.FC = () => {
+const Home = () => {
 
     useEffect(() => {
       getCurrentUser().then(user => {
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       });
     }, []);
 
-  const [input, setInput] = useState<string>('')
+  const [input, setInput] = useState('')
 
   return (
     <IonPage>

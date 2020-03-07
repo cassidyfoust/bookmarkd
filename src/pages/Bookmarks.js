@@ -11,7 +11,7 @@ let books = [
 author: 'E.K. Johnston'}
 ]
 
-const Bookmarks: React.FC = () => {
+const Bookmarks = () => {
   return (
     <IonPage id="main">
       <IonHeader>

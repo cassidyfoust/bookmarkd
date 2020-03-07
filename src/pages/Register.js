@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import {toast} from '../toast';
 import {registerUser} from '../firebaseConfig';
 
-const Register: React.FC = () => {
+const Register = () => {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [busy, setBusy] = useState<boolean>(false);
+  const [busy, setBusy] = useState(false);
 
 
   async function register() {
@@ -39,19 +39,19 @@ const Register: React.FC = () => {
         <IonInput
           placeholder="Email"
           value={username}
-          onIonChange={(e: any) => setUsername(e.target.value)}
+          onIonChange={(e) => setUsername(e.target.value)}
         ></IonInput>
         <IonInput
           placeholder="Password"
           value={password}
           type="password"
-          onIonChange={(e: any) => setPassword(e.target.value)}
+          onIonChange={(e) => setPassword(e.target.value)}
         ></IonInput>
         <IonInput
           placeholder="Confirm Password"
           type="password"
           value={confirmPassword}
-          onIonChange={(e: any) => setConfirmPassword(e.target.value)}
+          onIonChange={(e) => setConfirmPassword(e.target.value)}
         ></IonInput>
         <IonButton onClick={register}>Register</IonButton>
         <p>

@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import {loginUser} from '../firebaseConfig';
 import {toast} from '../toast';
 
-const Login: React.FC = () => {
+const Login = () => {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [busy, setBusy] = useState<boolean>(false)
+  const [busy, setBusy] = useState(false)
 
   async function login(){
     setBusy(true)
@@ -32,8 +32,8 @@ const Login: React.FC = () => {
       </IonHeader>
       <IonLoading message="Please wait..." isOpen={busy} duration={0}/>
       <IonContent className="ion-padding">
-        <IonInput placeholder="Email" value={username} onIonChange={(e: any) => setUsername(e.target.value)}></IonInput>
-        <IonInput placeholder="Password" value={password} type="password" onIonChange={(e: any) => setPassword(e.target.value)}></IonInput>
+        <IonInput placeholder="Email" value={username} onIonChange={(e) => setUsername(e.target.value)}></IonInput>
+        <IonInput placeholder="Password" value={password} type="password" onIonChange={(e) => setPassword(e.target.value)}></IonInput>
         <IonButton onClick={login}>Login</IonButton>
         <p>Need an account? <Link to="/register">Register</Link></p>
       </IonContent>

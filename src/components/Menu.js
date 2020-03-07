@@ -1,13 +1,13 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonText, IonItemSliding, IonItemOptions, IonItemOption, IonMenu, IonIcon } from '@ionic/react';
+import { IonContent, IonItem, IonMenu, IonIcon } from '@ionic/react';
 import React from 'react';
 import { bookOutline, personOutline, bookmarkOutline } from "ionicons/icons";
 import './Menu.css'
 
-const Menu: React.FC = () => {
+const Menu= () => {
   return (
     <IonMenu contentId="main">
       <IonContent>
-        <IonItem className="menuItem" routerLink='/discover'>
+        <IonItem className="menuItem">
           <IonIcon icon={bookOutline} className="menuIcon" />
           Discover
       </IonItem>

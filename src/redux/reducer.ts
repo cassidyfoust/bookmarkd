@@ -9,5 +9,12 @@ export default function reducer(
                     userData: payload
                 }
         }
+        switch (type) {
+          case "SET_BOOKS":
+            return {
+              ...state,
+              randomBooks: payload
+            };
+        }
         return state
     }

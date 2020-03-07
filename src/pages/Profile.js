@@ -2,9 +2,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput } from '
 import React,{useState} from 'react';
 import './Profile.css';
 
-const Profile: React.FC = () => {
+const Profile = () => {
 
-  const [input, setInput] = useState<string>('')
+  const [input, setInput] = useState('')
 
   return (
     <IonPage>
@@ -15,7 +15,7 @@ const Profile: React.FC = () => {
       </IonHeader>
       <IonContent className="ion-padding">
         <h1>Name:</h1>
-        <IonInput value={input} onIonChange={(e: any) => setInput(e.target.value)}></IonInput>
+        <IonInput value={input} onIonChange={(e) => setInput(e.target.value)}></IonInput>
       </IonContent>
     </IonPage>
   );
