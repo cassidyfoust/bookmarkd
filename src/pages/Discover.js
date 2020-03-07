@@ -5,16 +5,13 @@ import { bookmarkOutline, trashBinOutline, book } from "ionicons/icons";
 import { connect } from "react-redux";
 
 const mapStateToProps = reduxState => ({
-    reduxState
+      randomBooks: (reduxState && reduxState.randomBooks) || [],
   });
 
 class Discover extends Component {
-  componentDidMount() {
-    this.props.dispatch({
-      type: "FETCH_BOOKS"
-    });
-  }
+
   render() {
+    console.log('the redux state is:' + this.props.randomBooks)
     return (
       <IonPage>
         <IonHeader>
@@ -23,15 +20,16 @@ class Discover extends Component {
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
-          {/* {this.props.reduxState.randomBooks.map(book => {
+          {this.props.randomBooks && this.props.randomBooks.map(book => {
             return (
-              <IonCard key={book}>
+              <IonCard key={book.volumeInfo.title}>
                 <IonCardContent>
-                  <img src={book} />
+                  <div>{book.volumeInfo.title}</div>
+                  <img src={book.volumeInfo.title} />
                 </IonCardContent>
               </IonCard>
             );
-          })} */}
+          })}
         </IonContent>
       </IonPage>
     );

@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
         url: endpoint
     })
         .then((response) => {
-            console.log('heres the response!' + response.data)
             res.send(response.data)
         })
         .catch(error => {
