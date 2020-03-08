@@ -44,7 +44,6 @@ class App extends Component {
     });
   }
 render() {
-  console.log('reduxstate: ', this.props.reduxState.randomBooks);
   return (
     <IonApp id="main">
         <IonReactRouter>

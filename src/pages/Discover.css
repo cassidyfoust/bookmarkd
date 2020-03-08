@@ -3,10 +3,13 @@ ion-content ion-toolbar {
 }
 
 .randomBooks {
-  width: 45vw;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
 }
 
 .randomBooksWrapper {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }

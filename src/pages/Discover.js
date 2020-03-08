@@ -1,8 +1,8 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonLabel, IonButton, IonIcon, IonCardContent, IonButtons } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
 import React, {Component} from "react";
 import './Discover.css';
-import { bookmarkOutline, trashBinOutline, book } from "ionicons/icons";
 import { connect } from "react-redux";
+import AddBooks from '../components/AddBooks';
 
 const mapStateToProps = reduxState => ({
       randomBooks: (reduxState && reduxState.randomBooks) || [],
@@ -11,7 +11,6 @@ const mapStateToProps = reduxState => ({
 class Discover extends Component {
 
   render() {
-    console.log('the redux state is:' + this.props.randomBooks)
     return (
       <IonPage>
         <IonHeader>
@@ -19,21 +18,11 @@ class Discover extends Component {
             <IonTitle>Bookmark'd</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding">
+        <IonContent className="randomBooksWrapper">
             {this.props.randomBooks &&
               this.props.randomBooks.map(book => {
                 return (
-                  <IonCard key={book.volumeInfo.title} className="randomBooks">
-                    <IonCardContent>
-                      <img src={book.volumeInfo.imageLinks.smallThumbnail} />
-                      <IonButton color="danger">
-                        <IonIcon icon={trashBinOutline} />
-                      </IonButton>
-                      <IonButton color="">
-                        <IonIcon icon={bookmarkOutline} />
-                      </IonButton>
-                    </IonCardContent>
-                  </IonCard>
+                  <AddBooks book={book}/>
                 );
               })}
         </IonContent>

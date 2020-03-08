@@ -20,7 +20,7 @@
 .vscode
 .env
 
-./firebaseConfig.ts
+./firebaseConfig.js
 
 npm-debug.log*
 yarn-debug.log*
