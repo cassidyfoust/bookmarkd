@@ -49,7 +49,7 @@ export async function registerUser(email, password){
 
   export async function onSave(book){
     try {let collectionRef = firebase.firestore().collection("books");
-        const result = await collectionRef.add({ title: book.volumeInfo.title})
+        const result = await collectionRef.add({ title: book.volumeInfo.title, authors: book.volumeInfo.authors, isbn: book.volumeInfo.industryIdentifiers[0].identifier, user: })
         return true
     } catch (error) {
         console.log('ERROR!' , error)
