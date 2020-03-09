@@ -4,4 +4,11 @@ ion-content ion-toolbar {
 
 .customItem {
   background-color: transparent !important;
+  width: 95vw;
+  margin-left: 2.75vw !important;
+  margin-top: .5vh;
+}
+
+.customList{
+  background-color: transparent !important;
 }

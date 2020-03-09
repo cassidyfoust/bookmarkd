@@ -49,7 +49,7 @@ const Bookmarks = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
-          <IonList>
+          <IonList className="customList">
             {collection.map(elem => {
               return (
                 <IonItemSliding key={elem.title} className="customItem">
@@ -59,7 +59,7 @@ const Bookmarks = () => {
                     </IonText>
                   </IonItem>
                   <IonItemOptions side="end">
-                    <IonItemOption
+                    <IonItemOption color="secondary"
                       onClick={e =>
                         window.open(
                           `https://www.indiebound.org/book/${elem.isbn}`

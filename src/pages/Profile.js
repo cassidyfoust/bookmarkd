@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard , IonCardContent} from '@ionic/react';
 import React,{useState, useEffect} from 'react';
 import './Profile.css';
 import {getCurrentUser} from '../firebaseConfig';
@@ -25,8 +25,16 @@ const Profile = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <h3>Email: {user.email}</h3>
-        <IonInput value={input} onIonChange={(e) => setInput(e.target.value)}></IonInput>
+        <IonCard>
+          <IonCardContent>
+            <h3>Name: Cassidy Foust</h3>
+            <br></br>
+            <h3>Email: {user.email}</h3>
+            <br></br>
+            <h3>Age: 26</h3>
+            <br></br>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
