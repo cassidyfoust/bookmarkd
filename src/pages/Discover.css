@@ -1,15 +1,20 @@
-ion-content ion-toolbar {
+ion-content {
   --background: translucent;
 }
 
-.randomBooks {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
+.randomBooksWrapper {
+  height: 40vh;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  margin-top: 10vh !important;
 }
 
-.randomBooksWrapper {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+.refreshButton {
+  display: flex !important;
+  width: 15vw;
+  flex-direction: column;
+  margin-top: 10vh !important;
+  margin-left: 42.5vw !important;
 }

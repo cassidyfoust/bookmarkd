@@ -52,7 +52,7 @@ const Bookmarks = () => {
           <IonList>
             {collection.map(elem => {
               return (
-                <IonItemSliding key={elem.title}>
+                <IonItemSliding key={elem.title} className="customItem">
                   <IonItem>
                     <IonText>
                       {elem.title} by {elem.authors[0]}

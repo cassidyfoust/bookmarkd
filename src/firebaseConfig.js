@@ -43,6 +43,7 @@ export async function logoutUser() {
     const result = await firebase
       .auth()
       .signOut();
+      window.location.replace("/home");
     return true;
   } catch (error) {
     return false;
