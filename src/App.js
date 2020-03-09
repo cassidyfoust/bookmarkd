@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet} from '@ionic/react';
+import { IonApp, IonIcon, IonLabel, IonTabs, IonTabBar, IonTabButton, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Discover from './pages/Discover';
 import Bookmarks from './pages/Bookmarks';
@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import { connect } from "react-redux";
+import { bookOutline, personOutline, bookmarkOutline } from "ionicons/icons";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -45,7 +46,8 @@ class App extends Component {
 render() {
   return (
     <IonApp id="main">
-        <IonReactRouter>
+      <IonReactRouter>
+        <IonTabs>
           <IonRouterOutlet>
             <Route path="/discover" component={Discover} exact={true} />
             <Route path="/yourbookmarks" component={Bookmarks} exact={true} />
@@ -54,7 +56,22 @@ render() {
             <Route path="/register" component={Register} exact={true} />
             <Route path="/home" component={Home} exact={true} />
             <Route exact path="/" render={() => <Redirect to="/home" />} />
-        </IonRouterOutlet>
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="discover" href="/discover">
+              <IonIcon icon={bookOutline} className="menuIcon" />
+              <IonLabel>Discover</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="profile" href="/yourprofile">
+              <IonIcon icon={personOutline} className="menuIcon" />
+              <IonLabel>Profile</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="bookmarks" href="/yourbookmarks">
+              <IonIcon icon={bookmarkOutline} className="menuIcon" />
+              <IonLabel>Bookmarks</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
       </IonReactRouter>
     </IonApp>
   );

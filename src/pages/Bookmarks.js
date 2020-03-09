@@ -14,8 +14,8 @@ import {
 import React, { useEffect , useState} from "react";
 import "./Bookmarks.css";
 import {firebaseConst} from '../firebaseConfig';
-import Menu from '../components/Menu';
 import {toast} from'../toast';
+
 
 function GetUserCollection() {
   const [collection, setCollection] = useState([])
@@ -43,7 +43,6 @@ const Bookmarks = () => {
   const collection = GetUserCollection();
     return (
       <IonPage id="main">
-        <Menu />
         <IonHeader>
           <IonToolbar>
             <IonTitle>Your Bookmarks</IonTitle>

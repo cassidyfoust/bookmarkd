@@ -1,6 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput } from '@ionic/react';
 import React,{useState} from 'react';
-import Menu from '../components/Menu'
 import './Profile.css';
 
 const Profile = () => {
