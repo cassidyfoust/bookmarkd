@@ -38,6 +38,17 @@ export async function loginUser(email, password){
     }
 }
 
+export async function logoutUser() {
+  try {
+    const result = await firebase
+      .auth()
+      .signOut();
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
 export async function registerUser(email, password){
     try {
         const result = await firebase.auth().createUserWithEmailAndPassword(email, password)

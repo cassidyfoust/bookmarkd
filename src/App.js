@@ -9,7 +9,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import { connect } from "react-redux";
-import { bookOutline, personOutline, bookmarkOutline } from "ionicons/icons";
+import { bookOutline, personOutline, bookmarkOutline , logOutOutline} from "ionicons/icons";
+import {logoutUser} from './firebaseConfig'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -69,6 +70,10 @@ render() {
             <IonTabButton tab="bookmarks" href="/yourbookmarks">
               <IonIcon icon={bookmarkOutline} className="menuIcon" />
               <IonLabel>Bookmarks</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="logout" onClick={e => logoutUser()} href="/home">
+              <IonIcon icon={logOutOutline} className="menuIcon" />
+              <IonLabel>Logout</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>

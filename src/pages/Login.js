@@ -18,7 +18,7 @@ const Login = () => {
         toast('Unable to login. Please double-check your username and password.')
       } else {
         toast('You are logged in.')
-        window.history.replaceState({}, "", "/discover")
+        window.location.replace("/discover");
       }
       setBusy(false)
   }
