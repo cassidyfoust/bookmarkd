@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton} from '@ionic/react';
 import React, {Component} from "react";
 import './Discover.css';
 import { connect } from "react-redux";
@@ -18,13 +18,16 @@ class Discover extends Component {
             <IonTitle>Bookmark'd</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="randomBooksWrapper">
+        <IonContent className="pageWrapper">
+          <div className="randomBooksWrapper">
             {this.props.randomBooks &&
               this.props.randomBooks.map(book => {
-                return (
-                  <AddBooks book={book}/>
-                );
+                return <AddBooks book={book} />;
               })}
+          </div>
+          <div className="refreshButton">
+            <IonButton color="secondary" onClick={(e) => this.props.dispatch({type: "FETCH_BOOKS"})}>Refresh Books</IonButton>
+          </div>
         </IonContent>
       </IonPage>
     );

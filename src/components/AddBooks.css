@@ -1,0 +1,11 @@
+
+.randomBooks {
+  width: 15vw;
+  display: flex;
+  justify-content: center !important;
+}
+
+.randomBooksButton {
+  display: flex;
+  justify-content: center !important;
+}

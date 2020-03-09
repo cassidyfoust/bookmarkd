@@ -7,8 +7,9 @@ import {
 } from "@ionic/react";
 import {onSave, getCurrentUser} from '../firebaseConfig';
 import { toast } from "../toast";
+import './AddBooks.css'
 
-import { bookmarkOutline, trashBinOutline, book } from "ionicons/icons";
+import { bookmarkOutline, checkmarkCircleOutline} from "ionicons/icons";
 
 /**
  *
@@ -26,6 +27,7 @@ function AddBooks(props) {
         }, []);
 
         const [userId, setUserId] = useState("");
+        const [buttonClicked, setButtonClicked] = useState(false);
 
       async function saveBook(book, userId) {
         const result = await onSave(book, userId);
@@ -35,10 +37,29 @@ function AddBooks(props) {
           );
         } else {
           toast("Saved to your collection.");
+          setButtonClicked(true);
         }
       }
-
-
+      let saveButton;
+      if(buttonClicked){
+        saveButton = (
+              <IonButton
+                className="randomBooksButton"
+                color="success"
+              >
+                <IonIcon icon={checkmarkCircleOutline} /> Saved
+              </IonButton>
+            );
+      } else {
+        saveButton = (
+  <IonButton
+    className="randomBooksButton"
+    color="secondary"
+    onClick={() => saveBook(props.book, userId)}
+  >
+    <IonIcon icon={bookmarkOutline} /> Save
+  </IonButton>
+        )}
   return (
     <>
       <IonCard
@@ -48,20 +69,11 @@ function AddBooks(props) {
       >
         <IonCardContent>
           <img src={props.book.volumeInfo.imageLinks.smallThumbnail} />
-          <IonButton color="danger">
-            <IonIcon icon={trashBinOutline} />
-          </IonButton>
-          <IonButton color="" onClick={() => saveBook(props.book, userId)}>
-            <IonIcon icon={bookmarkOutline} /> Save
-          </IonButton>
+          <div>
+          {saveButton}
+          </div>
         </IonCardContent>
       </IonCard>
-      {/* <IonItem>
-        <IonInput value={book} onInput={e => setBook(e.target.value)} />
-      </IonItem>
-      <IonButton style={{ marginTop: 8 }} onClick={onSave}>
-        SAVE
-      </IonButton> */}
     </>
   );
 }

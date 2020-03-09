@@ -1,0 +1,5 @@
+.appCustom {
+  background-image: URL('./pages/bookmarkdbackground.png') !important;
+  background-size: 30%;
+  background-repeat: repeat !important;
+}
