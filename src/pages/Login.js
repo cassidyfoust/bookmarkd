@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton, IonLoading } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton, IonLoading , IonCard, IonCardContent} from '@ionic/react';
 import React,{useState} from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
@@ -30,12 +30,27 @@ const Login = () => {
           <IonTitle>Login</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonLoading message="Please wait..." isOpen={busy} duration={0}/>
+      <IonLoading message="Please wait..." isOpen={busy} duration={0} />
       <IonContent className="ion-padding">
-        <IonInput placeholder="Email" value={username} onIonChange={(e) => setUsername(e.target.value)}></IonInput>
-        <IonInput placeholder="Password" value={password} type="password" onIonChange={(e) => setPassword(e.target.value)}></IonInput>
-        <IonButton onClick={login}>Login</IonButton>
-        <p>Need an account? <Link to="/register">Register</Link></p>
+        <IonCard>
+          <IonCardContent>
+            <IonInput
+              placeholder="Email"
+              value={username}
+              onIonChange={e => setUsername(e.target.value)}
+            ></IonInput>
+            <IonInput
+              placeholder="Password"
+              value={password}
+              type="password"
+              onIonChange={e => setPassword(e.target.value)}
+            ></IonInput>
+            <IonButton color="secondary" onClick={login}>Login</IonButton>
+            <p>
+              Need an account? <Link to="/register">Register</Link>
+            </p>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );

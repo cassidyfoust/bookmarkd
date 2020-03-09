@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonCard, IonCardContent } from '@ionic/react';
 import React, { useState, useEffect } from "react";
 import {getCurrentUser} from '../firebaseConfig';
 import './Profile.css';
@@ -23,11 +23,14 @@ const Home = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <h2>Have an account?</h2>
-        <IonButton routerLink="/login">Login</IonButton>
-        <h2>Need an account?</h2>
-        <IonButton routerLink="/register">Register</IonButton>
-        
+        <IonCard>
+          <IonCardContent>
+            <h2>Have an account?</h2>
+            <IonButton routerLink="/login">Login</IonButton>
+            <h2>Need an account?</h2>
+            <IonButton routerLink="/register">Register</IonButton>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );

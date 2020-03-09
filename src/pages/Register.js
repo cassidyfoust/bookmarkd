@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton, IonLoading } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonButton, IonLoading, IonCard, IonCardContent } from '@ionic/react';
 import React, { useState } from 'react';
 import './Register.css';
 import { Link } from 'react-router-dom';
@@ -36,27 +36,33 @@ const Register = () => {
       </IonHeader>
       <IonLoading message="Please wait..." isOpen={busy} duration={0} />
       <IonContent className="ion-padding">
-        <IonInput
-          placeholder="Email"
-          value={username}
-          onIonChange={(e) => setUsername(e.target.value)}
-        ></IonInput>
-        <IonInput
-          placeholder="Password"
-          value={password}
-          type="password"
-          onIonChange={(e) => setPassword(e.target.value)}
-        ></IonInput>
-        <IonInput
-          placeholder="Confirm Password"
-          type="password"
-          value={confirmPassword}
-          onIonChange={(e) => setConfirmPassword(e.target.value)}
-        ></IonInput>
-        <IonButton onClick={register}>Register</IonButton>
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
+        <IonCard>
+          <IonCardContent>
+            <IonInput
+              placeholder="Email"
+              value={username}
+              onIonChange={e => setUsername(e.target.value)}
+            ></IonInput>
+            <IonInput
+              placeholder="Password"
+              value={password}
+              type="password"
+              onIonChange={e => setPassword(e.target.value)}
+            ></IonInput>
+            <IonInput
+              placeholder="Confirm Password"
+              type="password"
+              value={confirmPassword}
+              onIonChange={e => setConfirmPassword(e.target.value)}
+            ></IonInput>
+            <IonButton color="secondary" onClick={register}>
+              Register
+            </IonButton>
+            <p>
+              Already have an account? <Link to="/login">Login</Link>
+            </p>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );

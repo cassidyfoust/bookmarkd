@@ -5,7 +5,7 @@ require('dotenv').config();
 
 router.get('/', (req, res) => {
     let randomNumber = Math.floor(Math.random() * 101);
-    let endpoint = `https://www.googleapis.com/books/v1/volumes?q=fiction&maxResults=5&startIndex=${randomNumber}&key=${process.env.GOOGLE_BOOKS_API_KEY}`;
+    let endpoint = `https://www.googleapis.com/books/v1/volumes?q=a&maxResults=5&startIndex=${randomNumber}&key=${process.env.GOOGLE_BOOKS_API_KEY}`;
     axios({
         method: 'GET',
         url: endpoint
