@@ -13,7 +13,9 @@ import {
 } from "@ionic/react";
 import React, { useEffect , useState} from "react";
 import "./Bookmarks.css";
-import {firebaseConst} from '../firebaseConfig'
+import {firebaseConst} from '../firebaseConfig';
+import Menu from '../components/Menu';
+import {toast} from'../toast';
 
 function GetUserCollection() {
   const [collection, setCollection] = useState([])
@@ -30,9 +32,18 @@ function GetUserCollection() {
 }
 
 const Bookmarks = () => {
+
+  function deleteDoc(docId){firebaseConst.firestore()
+  .collection("books")
+  .doc(docId)
+  .delete().then(
+    toast('Bookmark removed from your collection.', 4000)
+  )}
+
   const collection = GetUserCollection();
     return (
       <IonPage id="main">
+        <Menu />
         <IonHeader>
           <IonToolbar>
             <IonTitle>Your Bookmarks</IonTitle>
@@ -40,7 +51,7 @@ const Bookmarks = () => {
         </IonHeader>
         <IonContent className="ion-padding">
           <IonList>
-            {collection.map((elem) => {
+            {collection.map(elem => {
               return (
                 <IonItemSliding key={elem.title}>
                   <IonItem>
@@ -50,15 +61,17 @@ const Bookmarks = () => {
                   </IonItem>
                   <IonItemOptions side="end">
                     <IonItemOption
-                      onClick={(e) => window.open(
-                        `https://www.indiebound.org/book/${elem.isbn}`
-                      )}
+                      onClick={e =>
+                        window.open(
+                          `https://www.indiebound.org/book/${elem.isbn}`
+                        )
+                      }
                     >
                       Buy
                     </IonItemOption>
                     <IonItemOption
                       onClick={() =>
-                        alert("Are you sure you want to delete this?")
+                        deleteDoc(elem.id)
                       }
                       color="danger"
                     >

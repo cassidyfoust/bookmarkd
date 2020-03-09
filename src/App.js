@@ -7,7 +7,6 @@ import Bookmarks from './pages/Bookmarks';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Menu from './components/Menu';
 import Home from './pages/Home';
 import { connect } from "react-redux";
 
@@ -47,7 +46,6 @@ render() {
   return (
     <IonApp id="main">
         <IonReactRouter>
-          <Menu />
           <IonRouterOutlet>
             <Route path="/discover" component={Discover} exact={true} />
             <Route path="/yourbookmarks" component={Bookmarks} exact={true} />

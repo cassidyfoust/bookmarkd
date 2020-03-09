@@ -8,7 +8,7 @@ const Home = () => {
     useEffect(() => {
       getCurrentUser().then(user => {
         if (user) {
-          window.history.replaceState({}, "", "/discover");
+          window.location.replace("/discover");
         }
       });
     }, []);

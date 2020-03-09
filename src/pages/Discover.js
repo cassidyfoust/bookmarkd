@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import './Discover.css';
 import { connect } from "react-redux";
 import AddBooks from '../components/AddBooks';
+import Menu from "../components/Menu";
 
 const mapStateToProps = reduxState => ({
       randomBooks: (reduxState && reduxState.randomBooks) || [],
