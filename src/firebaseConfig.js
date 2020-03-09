@@ -1,18 +1,20 @@
 import * as firebase from 'firebase'
 import { toast } from './toast';
 
-const config = {
+export const config = {
   apiKey: "AIzaSyCgNu4Nd_BJUcE97dIcCIMNjHsda37vLKk",
   authDomain: "bookmark-d-6a071.firebaseapp.com",
   databaseURL: "https://bookmark-d-6a071.firebaseio.com",
   projectId: "bookmark-d-6a071",
   storageBucket: "bookmark-d-6a071.appspot.com",
   messagingSenderId: "397415254420",
-  appId: "1:397415254420:web:0bbbcc9ba962f9f48a6781",
-  measurementId: "G-47P9C2L337"
+  appId: "1:397415254420:web:a7c4ec6bbd5f0fa18a6781",
+  measurementId: "G-KYSV0QFKQX"
 };
 
-firebase.initializeApp(config)
+firebase.initializeApp(config);
+
+export const firebaseConst = firebase;
 
 export function getCurrentUser(){
     return new Promise((resolve, reject) => {
@@ -47,14 +49,12 @@ export async function registerUser(email, password){
     }
 }
 
-  export async function onSave(book){
+  export async function onSave(book, userId){
     try {let collectionRef = firebase.firestore().collection("books");
-        const result = await collectionRef.add({ title: book.volumeInfo.title, authors: book.volumeInfo.authors, isbn: book.volumeInfo.industryIdentifiers[0].identifier, user: })
+        const result = await collectionRef.add({ title: book.volumeInfo.title, authors: book.volumeInfo.authors, isbn: book.volumeInfo.industryIdentifiers[0].identifier, user: userId})
         return true
     } catch (error) {
         console.log('ERROR!' , error)
         toast(error.message, 4000)
         return false
-    }
-
-};
+    }}

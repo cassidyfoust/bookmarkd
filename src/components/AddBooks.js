@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import firebase from "firebase";
-import { useDocument } from "react-firebase-hooks/firestore";
 import {
   IonButton,
   IonCard,
   IonIcon,
   IonCardContent,
 } from "@ionic/react";
-import {onSave} from '../firebaseConfig';
+import {onSave, getCurrentUser} from '../firebaseConfig';
 import { toast } from "../toast";
 
 import { bookmarkOutline, trashBinOutline, book } from "ionicons/icons";
@@ -18,11 +16,19 @@ import { bookmarkOutline, trashBinOutline, book } from "ionicons/icons";
  */
 function AddBooks(props) {
 
-      const [busy, setBusy] = useState(false);
 
-      async function saveBook(book) {
-        setBusy(true);
-        const result = await onSave(book);
+    useEffect(() => {
+          getCurrentUser().then(user => {
+            if (user) {
+              setUserId(user.uid);
+            }
+          });
+        }, []);
+
+        const [userId, setUserId] = useState("");
+
+      async function saveBook(book, userId) {
+        const result = await onSave(book, userId);
         if (!result) {
           toast(
             "Unable to save book."
@@ -30,7 +36,6 @@ function AddBooks(props) {
         } else {
           toast("Saved to your collection.");
         }
-        setBusy(false);
       }
 
 
@@ -46,7 +51,7 @@ function AddBooks(props) {
           <IonButton color="danger">
             <IonIcon icon={trashBinOutline} />
           </IonButton>
-          <IonButton color="" onClick={() => saveBook(props.book)}>
+          <IonButton color="" onClick={() => saveBook(props.book, userId)}>
             <IonIcon icon={bookmarkOutline} /> Save
           </IonButton>
         </IonCardContent>
